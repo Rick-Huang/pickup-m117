@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, Dimensions, StyleSheet, View, Image } from 'react-native'
-// import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard'
-// import ActionButton from 'react-native-action-button';
-// import Icon from 'react-native-vector-icons/Ionicons';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
 
@@ -79,7 +78,11 @@ class Games extends Component {
             />
           ))}
         </MapView>
-        
+        <ActionButton buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#9b59b6' title="New Game" onPress={Actions.newGame}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
       </View>
     )
     }
