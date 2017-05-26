@@ -4,7 +4,7 @@ import { TouchableOpacity, Dimensions, StyleSheet, View, Image } from 'react-nat
 // import ActionButton from 'react-native-action-button';
 // import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
-// import MapView from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -64,6 +64,21 @@ class Games extends Component {
       <View
         style={styles.main}
       >
+        <MapView
+          style={style}
+          initialRegion={{
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          {this.state.markers.map(marker => (
+            <MapView.Marker
+              coordinate={marker.latlng}
+            />
+          ))}
+        </MapView>
         
       </View>
     )
