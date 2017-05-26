@@ -3,51 +3,22 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import configureStore from './app/store/configureStore.js'
+import Router from './app/containers/Router'
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
-
+const store = configureStore()
 export default class pickup extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <Router />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('pickup', () => pickup);
