@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { userLogin, updateField } from '../actions';
-import { CardSection, Input, Button, Spinner } from '../components/common';
+import { CardSection, Input, Spinner } from '../components/common';
+
+import Button from '../components/button'
+
+import AppStyles from '../styles'
 
 class Login extends Component {
 
@@ -19,9 +23,11 @@ class Login extends Component {
   }
 
   return (
-    <Button onPress={this.onButtonPress.bind(this)}>
-      Log In
-    </Button>
+    <View style={[AppStyles.paddingHorizontal]}>
+      <Button
+        text={'Login/Sign Up'}
+        onPress={this.onButtonPress.bind(this)} />
+    </View>
   );
 }
 
@@ -53,9 +59,9 @@ class Login extends Component {
           {this.props.error}
         </Text>
 
-        <CardSection>
+        <View style={[AppStyles.paddingHorizontal]}>
           {this.renderButton()}
-        </CardSection>
+        </View>
       </View>
     );
   }
