@@ -1,11 +1,9 @@
 import { gamesRef } from '../firebase'
 
-import {
-ADD_GAME,
-ADD_GAME_SUCCESS,
-REMOVE_GAME,
-REMOVE_GAME_SUCCESS,
-} from './types';
+export const ADD_GAME = 'ADD_GAME'
+export const ADD_GAME_SUCCESS = 'ADD_GAME_SUCCESS'
+export const REMOVE_GAME = 'REMOVE_GAME'
+export const REMOVE_GAME_SUCCESSS = 'REMOVE_GAME_SUCCESSS'
 
 export function addGame(game) {
   gamesRef.push(game)
